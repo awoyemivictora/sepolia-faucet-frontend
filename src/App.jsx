@@ -50,7 +50,7 @@ function App() {
       } else {
         setError("Failed to request faucet. Please try again.");
       }
-      setTransactionHash(""); // Clear transaction hash in case of error
+      setTransactionHash(""); // Clear transaction hash in case of error 
     }
   };
 
