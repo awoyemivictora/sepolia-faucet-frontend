@@ -32,7 +32,7 @@ function App() {
 
     try {
       // Send a POST request to your FastAPI backend
-      const response = await axios.post("http://127.0.0.1:8000/faucet", {
+      const response = await axios.post("https://sepolia-faucet-backend.onrender.com/faucet", {
         address: address,
         captcha_response: captchaValue, // Send the captcha response to the backend
       });
