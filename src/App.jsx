@@ -62,7 +62,7 @@ function App() {
         <p className="text-center text-lg m-4">Test coins can be obtained by entering account address
 
 </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label
               htmlFor="address"
