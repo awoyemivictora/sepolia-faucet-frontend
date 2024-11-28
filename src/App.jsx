@@ -54,40 +54,61 @@ function App() {
     }
   };
 
+
   return (
-    <div className="App">
-      <h1>Sepolia ETH Faucet</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="address">Ethereum Address:</label>
-          <input
-            type="text"
-            id="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Enter your Sepolia address"
+    <div className="flex items-center justify-center p-20">
+      <div className="p-6 rounded-lg flex-grow max-w-full">
+        <h1 className="text-5xl font-bold text-center mb-4 text-black">Sepolia ETH Faucet</h1>
+        <p className="text-center text-lg m-4">Test coins can be obtained by entering account address
+
+</p>
+        <form>
+          <div>
+            <label
+              htmlFor="address"
+              className="block text-gray-700 font-medium mb-2"
+            >
+              Account Address:
+            </label>
+
+            <input
+              type="text"
+              id="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Enter your Sepolia address"
+              className="w-full px-4 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+            />
+          </div>
+
+          <div className="justify-items-center p-4">
+          <ReCAPTCHA
+            sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+            onChange={onCaptchaChange}
           />
-        </div>
+          </div>
 
-        {/* Google reCAPTCHA */}
-        <ReCAPTCHA
-          sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-          onChange={onCaptchaChange}
-        />
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white py-4 text-xl rounded-lg hover:bg-blue-600 transition"
+          >
+            Request ETH
+          </button>
+        </form>
 
-        <button type="submit">Request ETH</button>
-      </form>
+        {error && (
+          <p className="mt-4 text-red-500 text-center">{error}</p>
+        )}
 
-      {/* Display error message */}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
-      {/* Display transaction hash if successful */}
-      {transactionHash && (
-        <div>
-          <h3>Transaction Successful!</h3>
-          <p>Transaction Hash: {transactionHash}</p>
-        </div>
-      )}
+        {transactionHash && (
+          <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+            <h3 className="font-bold text-center">Transaction Successful!</h3>
+            <p className="text-center break-all">
+              Transaction Hash: {transactionHash}
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
