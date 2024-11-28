@@ -58,8 +58,8 @@ function App() {
   return (
     <div className="flex items-center justify-center p-20">
       <div className="p-6 rounded-lg flex-grow max-w-full">
-        <h1 className="text-5xl font-bold text-center mb-4 text-black">Sepolia ETH Faucet</h1>
-        <p className="text-center text-lg m-4">Test coins can be obtained by entering account address
+        <h1 className="text-3xl font-bold text-center mb-4 text-black">Sepolia ETH Faucet</h1>
+        <p className="text-center lg:text-lg m-4">Test coins can be obtained by entering account address
 
 </p>
         <form onSubmit={handleSubmit}>
